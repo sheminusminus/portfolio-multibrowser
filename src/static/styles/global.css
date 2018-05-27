@@ -57,6 +57,7 @@
     --color-theme-subtext: rgba(255, 255, 255, 0.8);
     --color-theme-navlinks: #977cad;
     --font-theme-primary: 'Novecentosanswide-Book', 'Open Sans', Helvetica, Arial, sans-serif;
+    --font-theme-lighter: 'Novecentosanswide-Light', 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -76,6 +77,5 @@ body {
 h1, h2, h3, h4, h5, h6,
 p,
 span {
-    font-family: var(--font-theme-primary);
     margin: 0 0 0 0;
 }

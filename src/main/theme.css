@@ -1,5 +1,16 @@
 .heading {
+    font-family: var(--font-theme-primary);
     text-transform: uppercase;
     font-weight: 300;
     color: var(--color-theme-text);
+    font-size: 20px;
+    letter-spacing: 0.06em;
+}
+
+.subheading {
+    font-family: var(--font-theme-lighter);
+    text-transform: uppercase;
+    color: var(--color-theme-subtext);
+    font-size: 16px;
+    letter-spacing: 0.06em;
 }

@@ -1,5 +1,28 @@
 .hero {
     min-height: 100vh;
+    position: relative;
+    background-image: url('../../../../images/glow.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.heroFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.canvas {
+    composes: heroFill;
+}
+
+.intro {
+    composes: heroFill;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,6 +30,7 @@
 
 .introText {
     color: var(--color-theme-text);
+    line-height: 2;
 
 }
 
@@ -14,6 +38,62 @@
     display: block;
 }
 
-.summary {
-    color: var(--color-theme-subtext);
+.subText {
+    margin: 56px 0 0 0;
+    line-height: 1.7;
+}
+
+.icons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 56px 0 0 0;
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+    cursor: pointer;
+    margin: 0 24px 0 0;
+    transition: opacity 0.2s;
+}
+
+.icon:hover {
+    opacity: 0.9;
+}
+
+.icon:last-child {
+    margin: 0 0 0 0;
+}
+
+.hub {
+    background-image: url('../../../../images/hub.png');
+}
+
+.lab {
+    background-image: url('../../../../images/lab.png');
+}
+
+.lin {
+    background-image: url('../../../../images/lin.png');
+}
+
+.mail {
+    background-image: url('../../../../images/mail.png');
+}
+
+.peek {
+    background-color: rgba(25,6,41,0);
+    background-image: -webkit-linear-gradient(rgba(25,6,41,0),#190629);
+    background-image: linear-gradient(rgba(25,6,41,0),#190629);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 300px;
 }
