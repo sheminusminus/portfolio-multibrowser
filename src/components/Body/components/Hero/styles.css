@@ -1,0 +1,18 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hello {
+    color: var(--color-theme-text);
+}
+
+.hello span {
+    display: block;
+}
+
+.summary {
+    color: var(--color-theme-subtext);
+}

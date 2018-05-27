@@ -1,9 +1,32 @@
 :root {
-    --color-bg-primary: #190629;
+    --color-theme-bg: #190629;
+    --color-theme-lightbg: #F6F4F8;
     --color-theme-primary: #db6061;
     --color-theme-secondary: #0EBCF3;
     --color-theme-tertiary: #29BAA5;
     --color-theme-accent: #844BA1;
     --color-theme-text: #ffffff;
     --color-theme-subtext: rgba(255, 255, 255, 0.8);
+    --color-theme-navlinks: #977cad;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:after, *:before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-color: var(--color-theme-bg);
+}
+
+h1, h2, h3, h4, h5, h6,
+p,
+span {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    margin: 0 0 0 0;
 }
