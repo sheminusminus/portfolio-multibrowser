@@ -1,0 +1,81 @@
+/* ============================ */
+/*!
+ * Web Fonts from Fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2018 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      Synthview Type Design
+ * License URL: https://www.fontspring.com/licenses/synthview/webfont
+ *
+ *
+ */
+
+@font-face {
+    font-family: 'Novecentosanswide-Book';
+    src: url('../fonts/Novecentosanswide-Book-webfont.woff2') format('woff2'),
+    url('../fonts/Novecentosanswide-Book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Novecentosanswide-Light';
+    src: url('../fonts/Novecentosanswide-Light-webfont.woff2') format('woff2'),
+    url('../fonts/Novecentosanswide-Light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ============================ */
+
+
+/* ~~~~~~~~~ */
+/* theme variables :) */
+/* ~~~~~~~~~ */
+
+:root {
+    --color-theme-bg: #190629;
+    --color-theme-lightbg: #F6F4F8;
+    --color-theme-primary: #db6061;
+    --color-theme-secondary: #0EBCF3;
+    --color-theme-tertiary: #29BAA5;
+    --color-theme-accent: #844BA1;
+    --color-theme-text: #ffffff;
+    --color-theme-subtext: rgba(255, 255, 255, 0.8);
+    --color-theme-navlinks: #977cad;
+    --font-theme-primary: 'Novecentosanswide-Book', 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:after, *:before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-color: var(--color-theme-bg);
+}
+
+h1, h2, h3, h4, h5, h6,
+p,
+span {
+    font-family: var(--font-theme-primary);
+    margin: 0 0 0 0;
+}

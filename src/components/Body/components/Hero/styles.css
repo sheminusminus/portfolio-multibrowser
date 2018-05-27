@@ -5,15 +5,15 @@
     justify-content: center;
 }
 
-.hello {
+.introText {
     color: var(--color-theme-text);
+
 }
 
-.hello span {
+.introText span {
     display: block;
 }
 
 .summary {
     color: var(--color-theme-subtext);
 }
-g

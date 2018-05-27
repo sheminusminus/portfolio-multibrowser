@@ -1,0 +1,5 @@
+.heading {
+    text-transform: uppercase;
+    font-weight: 300;
+    color: var(--color-theme-text);
+}
