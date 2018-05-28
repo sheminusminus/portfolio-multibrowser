@@ -4,6 +4,7 @@
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 const config = require('./webpack.config.base');
@@ -35,6 +36,10 @@ config.plugins = [
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template: 'src/static/index.ejs',
+  }),
+  new CopyWebpackPlugin({
+    from: path.resolve(__dirname, 'src/static/resume.pdf'),
+    to: path.resolve(__dirname, 'dist/resume.pdf'),
   }),
   new webpack.HashedModuleIdsPlugin(),
 ];
