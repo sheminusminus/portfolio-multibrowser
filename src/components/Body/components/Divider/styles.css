@@ -1,0 +1,6 @@
+.divider {
+    width: 100%;
+    height: 5px;
+    background-color: var(--color-theme-secondary);
+    background-image: linear-gradient(90deg, var(--color-theme-secondary), var(--color-theme-accent));
+}

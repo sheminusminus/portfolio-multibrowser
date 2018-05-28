@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Hero } from './components';
+import { Divider, Hero, Work } from './components';
 import { withTheme } from '../../hoc';
 
 import styles from './styles.css';
@@ -12,6 +12,8 @@ class Body extends Component {
     return (
       <div className={styles.body}>
         <HeroWithTheme />
+        <Divider />
+        <Work />
       </div>
     );
   }

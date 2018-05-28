@@ -1,5 +1,5 @@
 .hero {
-    height: 100vh;
+    height: calc(100vh - 5px);
     min-height: 600px;
     position: relative;
     background-image: url('../../../../images/glow.png');
@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .introText {
@@ -102,7 +102,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 35vh;
+    height: 300px;
 }
 
 @media (min-width: 768px) {

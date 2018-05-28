@@ -46,6 +46,12 @@ module.exports = {
         ],
       },
       {
+        test: /\.json$/,
+        loaders: [
+          'json-loader',
+        ],
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
@@ -57,6 +63,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.json'],
   },
 };
