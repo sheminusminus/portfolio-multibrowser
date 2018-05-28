@@ -30,7 +30,7 @@
       _this.direction = 1;
       _this.pos.x = Math.random() * width;
       _this.pos.y = (Math.random() * (height * 1.2)) - (Math.random() * (height * 0.3));
-      _this.maxAlpha = (0.15 + Math.random()) * 0.25;
+      _this.maxAlpha = (0.15 + Math.random()) * 0.20;
       _this.scale = (0.1 + Math.random()) * 0.5;
       _this.velocity = Math.random() + 0.1;
     }
@@ -72,7 +72,7 @@
 
     // create circles and draw
     circles = [];
-    for (let x = 0; x < width * 0.5; x++) {
+    for (let x = 0; x < width * 0.1; x++) {
       const c = new Circle();
       circles.push(c);
     }
