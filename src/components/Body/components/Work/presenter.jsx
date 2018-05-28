@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Project, Talk } from './components';
+
 import styles from './styles.css';
 
 class Work extends Component {
