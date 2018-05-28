@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { classie } from '../../../../utils';
 
+import { IntroIcon, IntroSkill } from './components';
+
 import styles from './styles.css';
 
 class Hero extends Component {
@@ -15,6 +17,7 @@ class Hero extends Component {
           className={styles.canvas}
           width={`${window.innerWidth}px`}
           height={`${window.innerHeight}px`} />
+
         <div className={styles.intro}>
           <p className={styles.introText}>
             <span className={theme.heading}>
@@ -26,22 +29,32 @@ class Hero extends Component {
             </span>
           </p>
 
-          <div className={styles.icons}>
-            <span className={classie([styles.icon, styles.mail])} />
-            <span className={classie([styles.icon, styles.hub])} />
-            <span className={classie([styles.icon, styles.lin])} />
-            <span className={classie([styles.icon, styles.lab])} />
-          </div>
-
           <p className={styles.subText}>
             <span className={theme.subheading}>
-              full-stack javascript | ui | ux
+              <span>
+                <IntroSkill text="full-stack javascript" />
+                <IntroSkill text="ios" />
+                <IntroSkill text="ux" />
+              </span>
+
               <br />
-              react | node | swift | react native
+
+              <span>
+                <IntroSkill text="react" />
+                <IntroSkill text="node" />
+                <IntroSkill text="swift" />
+                <IntroSkill text="react native" />
+              </span>
             </span>
           </p>
-        </div>
 
+          <div className={styles.icons}>
+            <IntroIcon className={styles.mail} href="./resume.pdf" />
+            <IntroIcon className={styles.hub} href="https://github.com/sheminusminus" />
+            <IntroIcon className={styles.lin} href="https://www.linkedin.com/in/emily-kolar-0bb63a54/" />
+            <IntroIcon className={styles.lab} href="https://gitlab.com/sheminusminus" />
+          </div>
+        </div>
         <div className={styles.peek}>
         </div>
       </div>
