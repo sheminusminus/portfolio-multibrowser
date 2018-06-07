@@ -43,6 +43,10 @@ config.plugins = [
       to: path.resolve(__dirname, 'dist/resume.pdf'),
     },
     {
+      from: path.resolve(__dirname, 'src/static/migrating_to_react16.pdf'),
+      to: path.resolve(__dirname, 'dist/migrating_to_react16.pdf'),
+    },
+    {
       from: path.resolve(__dirname, 'src/static/scripts/animation.js'),
       to: path.resolve(__dirname, 'dist/scripts/animation.js'),
     },
