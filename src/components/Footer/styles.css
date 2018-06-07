@@ -1,6 +1,27 @@
 .footer {
-    display: flex;
     padding: 0 24px 24px;
+}
+
+.repo {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.repo a {
+    text-decoration: none;
+    color: var(--color-theme-subtext);
+    font-family: 'Novecentosanswide-Light', 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.repo a:hover {
+    color: var(--color-theme-text);
+}
+
+.typical {
+    display: flex;
     color: var(--color-theme-subtext);
     font-family: 'Novecentosanswide-Light', 'Open Sans', Helvetica, Arial, sans-serif;
     font-size: 14px;
