@@ -10,7 +10,7 @@
 }
 
 .talksHeading {
-    margin: 30px 0;
+    margin: 80px 0 30px;
 }
 
 .subheading {
@@ -31,9 +31,13 @@
         flex-wrap: wrap;
     }
 
+    .gridFeatured {
+        margin-bottom: 80px;
+    }
+
     .grid a, .grid > div {
         width: 50vw;
-        height: calc(50vw + 47px);
+        height: 50vw;
     }
 
     .gridFeatured h5 {

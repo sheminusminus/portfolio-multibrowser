@@ -1,3 +1,16 @@
 .footer {
+    display: flex;
+    padding: 0 24px 24px;
+    color: var(--color-theme-subtext);
+    font-family: 'Novecentosanswide-Light', 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+}
 
+.footer p {
+    width: 50%;
+}
+
+.footer p:last-child {
+    text-align: right;
 }
