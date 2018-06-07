@@ -42,6 +42,31 @@ config.plugins = [
       from: path.resolve(__dirname, 'src/static/resume.pdf'),
       to: path.resolve(__dirname, 'dist/resume.pdf'),
     },
+    {
+      from: path.resolve(__dirname, 'src/static/scripts/animation.js'),
+      to: path.resolve(__dirname, 'dist/scripts/animation.js'),
+    },
+    {
+      from: path.resolve(__dirname, 'src/static/scripts/vr.js'),
+      to: path.resolve(__dirname, 'dist/scripts/vr.js'),
+    },
+    {
+      from: path.resolve(__dirname, 'src/static/vendor/three.min.js'),
+      to: path.resolve(__dirname, 'dist/vendor/three.min.js'),
+    },
+    {
+      from: path.resolve(__dirname, 'src/static/styles/normalize.css'),
+      to: path.resolve(__dirname, 'dist/styles/normalize.css'),
+    },
+    {
+      from: path.resolve(__dirname, 'src/static/styles/global.css'),
+      to: path.resolve(__dirname, 'dist/styles/global.css'),
+    },
+    {
+      context: path.resolve(__dirname, 'src/static/fonts'),
+      from: '*',
+      to: path.resolve(__dirname, 'dist/fonts'),
+    },
   ]),
   new webpack.HashedModuleIdsPlugin(),
 ];

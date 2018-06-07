@@ -27,7 +27,7 @@
 }
 
 .accent {
-    width: 32px;
+    width: 24px;
     height: 8px;
     border-top: 1px solid var(--color-theme-accent);
     display: inline-block;
@@ -47,5 +47,9 @@
         min-width: 50vw;
         margin: 0 auto;
         display: block;
+    }
+
+    .accent {
+        width: 32px;
     }
 }

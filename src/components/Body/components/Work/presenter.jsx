@@ -72,7 +72,7 @@ class Work extends Component {
 
         <h2
           id="talks"
-          className={classie([theme.heading, styles.heading, styles.talksHeading])}>
+          className={classie([theme.heading, styles.heading, styles.otherHeading])}>
           Talks
         </h2>
 
@@ -84,7 +84,7 @@ class Work extends Component {
 
         <h2
           id="openSource"
-          className={classie([theme.heading, styles.heading, styles.talksHeading])}>
+          className={classie([theme.heading, styles.heading, styles.otherHeading])}>
           Open Source
         </h2>
 
