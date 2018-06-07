@@ -1,19 +1,34 @@
 .introLink {
     margin: 0 8px 0 0;
-}
-
-.introLink a {
-    color: var(--color-theme-subtext);
+    cursor: pointer;
     text-decoration: none;
     transition: color 0.2s;
 }
 
-.introLink a:hover {
+.introLink:first-child {
+    color: var(--color-theme-primary);
+    transition: color 0.2s;
+}
+
+.introLink:nth-child(2) {
+    color: var(--color-theme-secondary);
+}
+
+.introLink:nth-child(3) {
+    color: var(--color-theme-tertiary);
+}
+
+.introLink span {
+    transition: color 0.2s;
+}
+
+.introLink span:hover {
     color: var(--color-theme-text);
 }
 
 .introLink:after {
     content: '|';
+    color: var(--color-theme-subtext);
     margin-left: 8px;
     display: inline-block;
     font-family: 'Novecentosanswide-Book', 'Open Sans', Helvetica, Arial, sans-serif;

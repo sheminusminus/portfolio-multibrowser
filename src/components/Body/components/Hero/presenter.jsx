@@ -31,18 +31,18 @@ class Hero extends Component {
 
           <p className={styles.subText}>
             <span className={theme.subheading}>
-              <span>
-                <IntroSkill text="full-stack javascript" />
-                <IntroSkill text="ios" />
-                <IntroSkill text="ux" />
-              </span>
+               <span>
+                 <IntroSkill text="full-stack javascript" />
+                 <IntroSkill text="ios" />
+                 <IntroSkill text="ux" />
+               </span>
 
-              <br />
+               <br />
 
               <span>
-                <IntroLink text="work" href="#work" />
-                <IntroLink text="talks" href="#talks" />
-                <IntroLink text="open source" href="#openSource" />
+                <IntroLink text="work" element="#work" />
+                <IntroLink text="talks" element="#talks" />
+                <IntroLink text="open source" element="#openSource" />
               </span>
             </span>
           </p>
