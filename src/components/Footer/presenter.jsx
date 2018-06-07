@@ -8,7 +8,7 @@ class Footer extends Component {
       <div className={styles.footer}>
         <div className={styles.repo}>
           <a href="https://github.com/sheminusminus/portfolio-multibrowser" target="_blank">
-            the repo for this site
+            psst... i run in vr. find out how here.
           </a>
         </div>
         <div className={styles.typical}>
