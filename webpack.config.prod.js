@@ -67,6 +67,10 @@ config.plugins = [
       to: path.resolve(__dirname, 'dist/styles/global.css'),
     },
     {
+      from: path.resolve(__dirname, 'src/static/images/x_projects.png'),
+      to: path.resolve(__dirname, 'dist/images/x_projects.png'),
+    },
+    {
       context: path.resolve(__dirname, 'src/static/fonts'),
       from: '*',
       to: path.resolve(__dirname, 'dist/fonts'),
