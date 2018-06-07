@@ -6,6 +6,7 @@ import { withTheme } from '../../hoc';
 import styles from './styles.css';
 
 const HeroWithTheme = withTheme(Hero);
+const WorkWithTheme = withTheme(Work);
 
 class Body extends Component {
   render() {
@@ -13,7 +14,7 @@ class Body extends Component {
       <div className={styles.body}>
         <HeroWithTheme />
         <Divider />
-        <Work />
+        <WorkWithTheme />
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { classie } from '../../../../utils';
 
-import { IntroIcon, IntroSkill } from './components';
+import { IntroIcon, IntroSkill, IntroLink } from './components';
 
 import styles from './styles.css';
 
@@ -40,10 +40,9 @@ class Hero extends Component {
               <br />
 
               <span>
-                <IntroSkill text="react" />
-                <IntroSkill text="node" />
-                <IntroSkill text="swift" />
-                <IntroSkill text="react native" />
+                <IntroLink text="work" href="#work" />
+                <IntroLink text="talks" href="#talks" />
+                <IntroLink text="open source" href="#openSource" />
               </span>
             </span>
           </p>

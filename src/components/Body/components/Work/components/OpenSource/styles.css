@@ -1,4 +1,4 @@
-.project {
+.os {
     width: 100vw;
     display: block;
     text-decoration: none;
@@ -6,17 +6,7 @@
     height: auto;
 }
 
-.last {
-    margin-bottom: 0;
-}
-
-.featured {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.project h5 {
+.os h5 {
     font-family: 'Novecentosanswide-Light', 'Open Sans', Helvetica, Arial, sans-serif;
     font-size: 20px;
     text-align: center;
@@ -36,10 +26,6 @@
     max-width: 100vw;
 }
 
-.featured img:last-child {
-    margin-top: -4px !important;
-}
-
 .accent {
     width: 32px;
     height: 8px;
@@ -53,15 +39,4 @@
 
 .accent:last-child {
     margin-left: 8px;
-}
-
-@media (min-width: 980px) {
-    .project h5 {
-        max-width: 50vw;
-    }
-
-    .project img {
-        min-width: 50vw;
-        max-width: 50vw;
-    }
 }

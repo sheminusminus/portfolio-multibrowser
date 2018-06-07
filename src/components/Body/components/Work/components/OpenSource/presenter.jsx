@@ -2,8 +2,8 @@ import React from 'react';
 
 import styles from './styles.css';
 
-const Talk = ({
-  title, image, href, date, venue,
+const OpenSource = ({
+  title, image, href,
 }) => {
   const inner = (
     <div className={styles.imgWrapper}>
@@ -13,29 +13,23 @@ const Talk = ({
         <span className={styles.accent} />
       </h5>
 
-      <h6 className={styles.talkInfo}>
-        <span className={styles.date}>{date}</span>
-        <span> • </span>
-        <span className={styles.venue}>{venue}</span>
-      </h6>
-
       <img src={image} alt={title} className={styles.img} />
     </div>
   );
 
   if (href) {
     return (
-      <a target="_blank" href={href} className={styles.talk}>
+      <a target="_blank" href={href} className={styles.os}>
         {inner}
       </a>
     );
   }
 
   return (
-    <div className={styles.talk}>
+    <div className={styles.os}>
       {inner}
     </div>
   );
 };
 
-export default Talk;
+export default OpenSource;

@@ -2,7 +2,7 @@
     height: calc(100vh - 5px);
     min-height: 600px;
     position: relative;
-    background-image: url('../../../../images/glow.png');
+    background-image: url('../../../../static/images/glow.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 60% center;
@@ -79,19 +79,19 @@
 }
 
 .hub {
-    background-image: url('../../../../images/hub.png');
+    background-image: url('../../../../static/images/hub.png');
 }
 
 .lab {
-    background-image: url('../../../../images/lab.png');
+    background-image: url('../../../../static/images/lab.png');
 }
 
 .lin {
-    background-image: url('../../../../images/lin.png');
+    background-image: url('../../../../static/images/lin.png');
 }
 
 .mail {
-    background-image: url('../../../../images/mail.png');
+    background-image: url('../../../../static/images/mail.png');
 }
 
 .peek {
