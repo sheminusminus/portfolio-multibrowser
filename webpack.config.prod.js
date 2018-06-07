@@ -37,10 +37,12 @@ config.plugins = [
     filename: 'index.html',
     template: 'src/static/index.ejs',
   }),
-  new CopyWebpackPlugin({
-    from: [path.resolve(__dirname, 'src/static/resume.pdf')],
-    to: [path.resolve(__dirname, 'dist/resume.pdf')],
-  }),
+  new CopyWebpackPlugin([
+    {
+      from: path.resolve(__dirname, 'src/static/resume.pdf'),
+      to: path.resolve(__dirname, 'dist/resume.pdf'),
+    },
+  ]),
   new webpack.HashedModuleIdsPlugin(),
 ];
 
