@@ -6,16 +6,16 @@
 }
 
 .introLink:first-child {
-    color: var(--color-theme-primary);
+    color: var(--color-theme-secondary);
     transition: color 0.2s;
 }
 
 .introLink:nth-child(2) {
-    color: var(--color-theme-secondary);
+    color: var(--color-theme-tertiary);
 }
 
 .introLink:nth-child(3) {
-    color: var(--color-theme-tertiary);
+    color: var(--color-theme-primary);
 }
 
 .introLink span {
