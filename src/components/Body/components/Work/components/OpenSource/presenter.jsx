@@ -1,9 +1,10 @@
 import React from 'react';
 
+import { classie } from '../../../../../../utils';
 import styles from './styles.css';
 
 const OpenSource = ({
-  title, image, href,
+  title, image, images, href,
 }) => {
   const inner = (
     <div className={styles.imgWrapper}>
@@ -13,7 +14,15 @@ const OpenSource = ({
         <span className={styles.accent} />
       </h5>
 
-      <img src={image} alt={title} className={styles.img} />
+      {!!images && images.length > 0 &&
+        <div className={styles.multiImage}>
+          {images.map((img, idx) => (
+            <img key={`os-img-${idx}`} src={img} alt={title} className={styles.img} />
+          ))}
+        </div>}
+
+      {(!images || images.length === 0) &&
+        <img src={image} alt={title} className={styles.img} />}
     </div>
   );
 

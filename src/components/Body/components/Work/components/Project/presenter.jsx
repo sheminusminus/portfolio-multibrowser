@@ -5,9 +5,12 @@ import { classie } from '../../../../../../utils';
 import styles from './styles.css';
 
 const Project = ({
-  title = '', href = '', image = '', images = [], isFeatured = false, last,
+  title = '', href = '', image = '', images = [], isFeatured = false, last, type,
 }) => {
   const className = classie([styles.project], { [styles.featured]: isFeatured });
+  const imgClassNames = classie([styles.img], {
+    [styles.iphone]: type === 'iphone',
+  });
 
   const inner = (
     <div className={styles.imgWrapper}>
@@ -15,7 +18,7 @@ const Project = ({
 
       {isFeatured ?
         images.map((i, idx) =>
-          <img key={`featured-img-${idx}`} src={i} alt={`${title} ${idx}`} className={styles.img} />)
+          <img key={`featured-img-${idx}`} src={i} alt={`${title} ${idx}`} className={imgClassNames} />)
         : <img src={image} alt={title} className={styles.img} />}
     </div>
   );

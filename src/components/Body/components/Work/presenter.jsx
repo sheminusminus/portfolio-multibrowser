@@ -18,6 +18,7 @@ class Work extends Component {
 
     const featuredProject = (
       <Project
+        type={featured.type}
         isFeatured={true}
         title={featured.title}
         images={featured.images}
@@ -26,6 +27,7 @@ class Work extends Component {
 
     const projects = work.projects.map((p, idx) =>
       <Project
+        type={p.type}
         last={idx === work.projects.length - 1}
         key={`work-project-${idx}`}
         title={p.title}
@@ -43,7 +45,8 @@ class Work extends Component {
 
     const openSource = work.openSource.map((os, idx) =>
       <OpenSource
-        key={`work-talks-${idx}`}
+        key={`open-source-${idx}`}
+        images={os.images}
         image={os.image}
         href={os.href}
         title={os.title} />);

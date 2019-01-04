@@ -55,6 +55,27 @@
     margin-left: 8px;
 }
 
+.iphone {
+    max-width: 100vw;
+    height: auto;
+}
+
+@media (min-width: 640px) {
+    .iphone {
+        max-width: 49vw;
+        min-width: 49vw;
+        margin-bottom: 0.5vw;
+    }
+
+    .iphone:nth-child(1n + 1) {
+        margin-left: 0.5vw;
+    }
+
+    .iphone:nth-child(2n + 2) {
+        margin-right: 0.5vw;
+    }
+}
+
 @media (min-width: 980px) {
     .project h5 {
         max-width: 50vw;
@@ -63,6 +84,19 @@
     .project img {
         min-width: 50vw;
         max-width: 50vw;
+    }
+
+    .iphone {
+        max-width: calc((100vw / 3) - 0.5vw) !important;
+        min-width: calc((100vw / 3) - 0.5vw) !important;
+    }
+
+    .iphone:nth-child(1n + 1) {
+        margin-left: 0.3vw;
+    }
+
+    .iphone:nth-child(2n + 2) {
+        margin-right: 0.3vw;
     }
 
     .accent {
