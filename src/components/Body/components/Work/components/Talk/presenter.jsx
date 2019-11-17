@@ -29,7 +29,12 @@ const Talk = ({
 
   if (href) {
     return (
-      <a target="_blank" href={href} className={styles.talk}>
+      <a
+        className={styles.talk}
+        href={href}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         {inner}
       </a>
     );

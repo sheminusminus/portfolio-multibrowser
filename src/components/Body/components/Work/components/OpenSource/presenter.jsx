@@ -30,7 +30,12 @@ const OpenSource = ({
 
   if (href) {
     return (
-      <a target="_blank" href={href} className={styles.os}>
+      <a
+        className={styles.os}
+        href={href}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         {inner}
       </a>
     );
