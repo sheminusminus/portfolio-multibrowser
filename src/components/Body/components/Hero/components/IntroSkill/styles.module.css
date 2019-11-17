@@ -1,0 +1,22 @@
+.introSkill {
+    margin: 0 8px 0 0;
+}
+
+.introSkill:after {
+    content: '|';
+    margin-left: 8px;
+    display: inline-block;
+    font-family: 'Novecentosanswide-Book', 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.introSkill:first-child {
+    margin-left: 0;
+}
+
+.introSkill:last-child {
+    margin-right: 0;
+}
+
+.introSkill:last-child:after {
+    content: none;
+}

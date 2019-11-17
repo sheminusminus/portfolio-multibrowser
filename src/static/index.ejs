@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>emkolar.ninja</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="emkolar web portfolio" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!--[if IE]>
     <meta name="X-UA-Compatible" content="IE=edge">
     <![endif]-->
@@ -13,25 +12,23 @@
     <meta name="application-name" content="emkolar.ninja">
     <meta name="theme-color" content="#db6061">
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
-
     <!-- normalize -->
-    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="stylesheet" href="./styles/normalize.css" />
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
 
     <!-- base styles -->
-    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./styles/global.css" />
 
 </head>
 <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="app"></div>
     <div id="modalRoot"></div>
 
-    <script src="./three.min.js"></script>
-    <script src="./vr.js"></script>
+    <audio src="lol.ogg" autoplay></audio>
+    <!--<script src="./scripts/animation.js"></script>-->
+    <script src="./vendor/three.min.js"></script>
+    <script src="./scripts/vr.js"></script>
 </body>
 </html>

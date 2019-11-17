@@ -1,0 +1,20 @@
+import React from 'react';
+
+import { classie } from 'utils';
+
+import styles from './styles.module.css';
+
+const IntroIcon = ({ className, href }) => (
+  <a
+    className={styles.iconLink}
+    href={href}
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span
+      className={classie([styles.icon, className])}
+    />
+  </a>
+);
+
+export default IntroIcon;

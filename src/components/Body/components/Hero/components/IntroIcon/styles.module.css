@@ -1,0 +1,23 @@
+.iconLink {
+    margin: 0 24px 0 0;
+}
+
+.iconLink:last-child {
+    margin: 0 0 0 0;
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.icon:hover {
+    opacity: 0.9;
+}
