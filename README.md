@@ -1,13 +1,14 @@
 # portfolio-multibrowser
 
-my portfolio site, with a version for the dom, and a version for vr.
+personal portfolio site, with a version for the dom, and a version for vr.
+
 
 ### viewing in vr
 
-currently, you can try it either of two ways:
+1. visit emkolar.ninja and hold down `V` and `R` simultaneously.
+ 
+2. press `M` to launch for magic leap displays, or press any other key for other vr displays (vive, etc).
 
-- visit emkolar.ninja in [Exokit](https://github.com/webmixedreality/exokit), a crazy fast web browser for mixed reality.
-- visit emkolar.ninja and hold down `V` and `R` simultaneously. then press `M` to launch for magic leap displays, or press any other key for other displays (vive, etc).
 
 ### run in development
 
