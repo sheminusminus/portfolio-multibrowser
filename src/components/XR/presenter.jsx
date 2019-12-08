@@ -31,6 +31,7 @@ const XR = ({ setHideApp }) => {
     if (hasDevice || forceVr) {
       setHideApp(true);
       setIsHidden(false);
+      window.xrSessionSupported = Boolean(navigator.xr && navigator.xr.isSessionSupported('inline'));
       window.dispatchEvent(window.runXrEvent);
     }
   };

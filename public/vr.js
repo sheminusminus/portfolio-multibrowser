@@ -1,7 +1,7 @@
 
 (function () {
-  function runCanvas() {
-    console.log('run canvas');
+  function runCanvas(evt) {
+    console.log(evt.target);
     // so webstorm stops whining about undef
     const { THREE } = window;
 
@@ -12,20 +12,9 @@
     let group;
     let cubes;
 
-    const imgPaths = [
-      'img/x_medean.png',
-      'img/x_xosite.png',
-      'img/x_sweetie.png',
-      'img/x_mdgb.png',
-      'img/x_green.png',
-      'img/x_dod.png',
-      'img/x_coaster.png',
-      'img/x_selfie.png',
-    ];
+    let isInteraction = false;
 
     const projectsImg = 'images/x_projects.png';
-
-    const cubeX = 10;
 
     let targetRotation = 0;
     let targetRotationY = 0;
@@ -37,7 +26,6 @@
     let mouseYOnMouseDown = 0;
     const windowHalfX = window.innerWidth / 2;
     const windowHalfY = window.innerHeight / 2;
-    const mouseDelta = 0;
     let fov;
 
     let onDocumentMouseOut;
@@ -66,36 +54,11 @@
         });
     }
 
-    function onDocumentKeyDown(evt) {
-      const code = evt.keyCode;
-
-      // press 'm' for magic leap (any other key for other vr)
-      if (code !== 77) {
-        scene.background = new THREE.Color(0x3B3961);
-      }
-
-      navigator.getVRDisplays().then((displays) => {
-        if (displays.length > 0) {
-          const display = displays[0];
-          const canvas = renderer.domElement;
-          display.requestPresent([{ source: canvas }]).then(() => {
-            renderer.vr.enabled = true;
-            renderer.vr.setDevice(display);
-            const leftEye = display.getEyeParameters('left');
-            const rightEye = display.getEyeParameters('right');
-            canvas.width = Math.max(leftEye.renderWidth, rightEye.renderWidth) * 2;
-            canvas.height = Math.max(leftEye.renderHeight, rightEye.renderHeight);
-            console.log('am i presenting meow?');
-          });
-        }
-      });
-    }
-
     function onDocumentMouseDown(event) {
       event.preventDefault();
-      window.addEventListener('mousemove', onDocumentMouseMove, false);
-      window.addEventListener('mouseup', onDocumentMouseUp, false);
-      window.addEventListener('mouseout', onDocumentMouseOut, false);
+
+      isInteraction = true;
+
       mouseXOnMouseDown = event.clientX - windowHalfX;
       mouseYOnMouseDown = event.clientY - windowHalfY;
       targetRotationOnMouseDown = targetRotation;
@@ -103,22 +66,20 @@
     }
 
     onDocumentMouseMove = (event) => {
-      mouseX = event.clientX - windowHalfX;
-      mouseY = event.clientY - windowHalfY;
-      targetRotation = targetRotationOnMouseDown + ((mouseX - mouseXOnMouseDown) * 0.02);
-      targetRotationY = targetRotationYOnMouseDown + ((mouseY - mouseYOnMouseDown) * 0.02);
+      if (isInteraction) {
+        mouseX = event.clientX - windowHalfX;
+        mouseY = event.clientY - windowHalfY;
+        targetRotation = targetRotationOnMouseDown + ((mouseX - mouseXOnMouseDown) * 0.02);
+        targetRotationY = targetRotationYOnMouseDown + ((mouseY - mouseYOnMouseDown) * 0.02);
+      }
     };
 
-    onDocumentMouseOut = (event) => {
-      document.removeEventListener('mousemove', onDocumentMouseMove, false);
-      document.removeEventListener('mouseup', onDocumentMouseUp, false);
-      document.removeEventListener('mouseout', onDocumentMouseOut, false);
+    onDocumentMouseOut = () => {
+      isInteraction = false;
     };
 
-    onDocumentMouseUp = (event) => {
-      document.removeEventListener('mousemove', onDocumentMouseMove, false);
-      document.removeEventListener('mouseup', onDocumentMouseUp, false);
-      document.removeEventListener('mouseout', onDocumentMouseOut, false);
+    onDocumentMouseUp = () => {
+      isInteraction = false;
     };
 
     function onDocumentTouchStart(event) {
@@ -162,6 +123,10 @@
 
       scene = new THREE.Scene();
 
+      if (!window.mlWorld) {
+        scene.background = new THREE.Color(0x3B3961);
+      }
+
       group = new THREE.Group();
 
       scene.add(group);
@@ -181,7 +146,34 @@
       window.addEventListener('touchmove', onDocumentTouchMove, false);
       window.addEventListener('resize', onWindowResize, false);
       window.addEventListener('wheel', onDocumentMouseWheel, false);
-      window.addEventListener('keydown', onDocumentKeyDown, false);
+      window.addEventListener('mousemove', onDocumentMouseMove, false);
+      window.addEventListener('mouseup', onDocumentMouseUp, false);
+      window.addEventListener('mouseout', onDocumentMouseOut, false);
+
+      const canvas = renderer.domElement;
+
+      if (window.xrSessionSupported) {
+        navigator.getVRDisplays().then((displays) => {
+          if (displays.length > 0) {
+            const display = displays[0];
+            display.requestPresent([{ source: canvas }]).then(() => {
+              renderer.vr.enabled = true;
+              renderer.vr.setDevice(display);
+              const leftEye = display.getEyeParameters('left');
+              const rightEye = display.getEyeParameters('right');
+              canvas.width = Math.max(leftEye.renderWidth, rightEye.renderWidth) * 2;
+              canvas.height = Math.max(leftEye.renderHeight, rightEye.renderHeight);
+              console.log('am i presenting meow?');
+            });
+          }
+        });
+      } else {
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.width = window.innerWidth;
+        canvas.style.height = `${window.innerHeight}px`;
+        canvas.height = window.innerHeight;
+        onWindowResize();
+      }
     }
 
     function animate() {
