@@ -1,20 +1,32 @@
-export default function classie(classArray, toggleClasses) {
-  const classes = [];
+export default function classie(...args) {
+  return args.reduce((classArray, arg) => {
+    if (typeof arg === 'string') {
+      return [...classArray, arg];
+    } else if (Array.isArray(arg)) {
+      const memberClasses = [];
 
-  if (classArray && Array.isArray(classArray)) {
-    classArray.forEach((c) => {
-      if (c && c.length) classes.push(c);
-    });
-  }
+      arg.forEach((c) => {
+        if (c && c.length) {
+          memberClasses.push(c);
+        }
+      });
 
-  if (toggleClasses && typeof toggleClasses === 'object' && Object.keys(toggleClasses).length) {
-    const keys = Object.keys(toggleClasses);
-    for (let i = 0; i < keys.length; i++) {
-      if (toggleClasses[keys[i]]) {
-        classes.push(keys[i]);
+      return [...classArray, ...memberClasses];
+    } else if (typeof arg === 'object' && Object.keys(arg).length) {
+      const keys = Object.keys(arg);
+      const keyClasses = [];
+
+      for (let i = 0; i < keys.length; i++) {
+        if (arg[keys[i]]) {
+          keyClasses.push(keys[i]);
+        }
       }
-    }
-  }
 
-  return classes.join(' ');
+      return [...classArray, ...keyClasses];
+    } else if (!Number.isNaN(arg)) {
+      return [...classArray, String[arg]];
+    }
+
+    return classArray;
+  }, []).join(' ');
 }

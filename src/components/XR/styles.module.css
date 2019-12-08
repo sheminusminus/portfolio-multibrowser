@@ -1,0 +1,23 @@
+.xr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px;
+}
+
+.xrPrompt {
+    background-color: transparent;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    color: var(--color-theme-primary-light);
+    cursor: pointer;
+    font-family: var(--font-theme-primary);
+    outline: none;
+    padding: 16px;
+    transition: border-color 0.4s, color 0.4s;
+}
+
+.xrPrompt:hover {
+    border-color: var(--color-theme-secondary-light);
+    color: var(--color-theme-secondary-light);
+}

@@ -1,20 +1,29 @@
 import React from 'react';
 
-import { Body, Footer, Header } from 'components';
+import { classie } from 'utils';
+
+import { Body, Footer, Header, XR } from 'components';
 import { ThemeProvider } from 'context';
 
 import styles from './styles.module.css';
 
 import theme from './theme.module.css';
 
-const Main = () => (
-  <ThemeProvider value={theme}>
-    <div className={styles.main}>
-      <Header />
-      <Body />
-      <Footer />
-    </div>
-  </ThemeProvider>
-);
+const Main = () => {
+  const [hideApp, setHideApp] = React.useState(false);
+
+  return (
+    <ThemeProvider value={theme}>
+      <div className={styles.main}>
+        <div className={classie({ hide: hideApp })}>
+          <Header />
+          <Body />
+          <Footer />
+        </div>
+        <XR setHideApp={setHideApp} />
+      </div>
+    </ThemeProvider>
+  );
+};
 
 export default Main;

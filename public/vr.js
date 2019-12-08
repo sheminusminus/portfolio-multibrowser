@@ -1,18 +1,7 @@
 
 (function () {
-  let pressingV = false;
-  let pressingR = false;
-  let forceVR = false;
-
   function runCanvas() {
-    if (
-      !navigator.userAgent.includes('Exokit') &&
-      !navigator.userAgent.includes('Webmr') &&
-      !forceVR
-    ) return;
-
-    document.querySelector('#app').classList.add('hide');
-
+    console.log('run canvas');
     // so webstorm stops whining about undef
     const { THREE } = window;
 
@@ -210,23 +199,5 @@
     animate();
   }
 
-  forceVR = false;
-  runCanvas();
-
-  // window.addEventListener('keydown', (evt) => {
-  //   const key = evt.which;
-  //   if (key === 86) pressingV = true;
-  //   if (key === 82) pressingR = true;
-  //   if (pressingV && pressingR) {
-  //     forceVR = true;
-  //     document.querySelector('#app').classList.add('hide');
-  //     runCanvas();
-  //   }
-  // });
-
-  window.addEventListener('keyup', (evt) => {
-    const key = evt.which;
-    if (key === 86) pressingV = false;
-    if (key === 82) pressingR = false;
-  });
+  window.addEventListener('runxr', runCanvas);
 }());
