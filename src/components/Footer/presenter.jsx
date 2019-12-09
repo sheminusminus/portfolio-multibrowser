@@ -2,15 +2,21 @@ import React from 'react';
 
 import styles from './styles.module.css';
 
-const Footer = () => (
+const makeDispatchPreviewXrEvent = setHideApp => (evt) => {
+  evt.preventDefault();
+  setHideApp(true);
+  window.xrSessionSupported = false;
+  window.dispatchEvent(window.prepXrEvent);
+};
+
+const Footer = ({ setHideApp }) => (
   <div className={styles.footer}>
     <div className={styles.repo}>
       <a
         href="https://github.com/sheminusminus/portfolio-multibrowser"
-        rel="noopener noreferrer"
-        target="_blank"
+        onClick={makeDispatchPreviewXrEvent(setHideApp)}
       >
-        psst... i run in vr. find out how here.
+        psst... i run in xr too. want a preview?
       </a>
     </div>
 

@@ -18,8 +18,9 @@ const Main = () => {
         <div className={classie({ hide: hideApp })}>
           <Header />
           <Body />
-          <Footer />
+          <Footer setHideApp={setHideApp} />
         </div>
+
         <XR setHideApp={setHideApp} />
       </div>
     </ThemeProvider>

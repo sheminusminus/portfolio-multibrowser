@@ -23,7 +23,7 @@ const useVrKeysPressedHook = (options = {}) => {
     if (!addedListeners) {
       setAddedListeners(true);
 
-      document.addEventListener('keydown', (evt) => {
+      const keyDownHandler = (evt) => {
         const { key } = evt;
 
         if (key === Keys.V) {
@@ -33,9 +33,11 @@ const useVrKeysPressedHook = (options = {}) => {
         }
 
         testForceVr(pressingVRef.current, pressingRRef.current);
-      });
+      };
 
-      document.addEventListener('keyup', (evt) => {
+      document.addEventListener('keydown', keyDownHandler);
+
+      const keyUpHandler = (evt) => {
         const { key } = evt;
 
         if (key === Keys.V) {
@@ -45,7 +47,14 @@ const useVrKeysPressedHook = (options = {}) => {
         }
 
         testForceVr(pressingVRef.current, pressingRRef.current);
-      });
+      };
+
+      document.addEventListener('keyup', keyUpHandler);
+
+      return () => {
+        document.removeEventListener('keydown', keyUpHandler);
+        document.removeEventListener('keyup', keyUpHandler);
+      };
     }
   }, [forceVr, addedListeners, setAddedListeners, testForceVr, pressingVRef, pressingRRef]);
 };

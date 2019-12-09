@@ -10,11 +10,11 @@ import styles from './styles.module.css';
 const xrRoot = document.getElementById('xrRoot');
 
 
-const XR = ({ setHideApp }) => {
+const XR = ({ setDestroyXr, setHideApp }) => {
   const [addedListeners, setAddedListeners] = React.useState(false);
-  const [isHidden, setIsHidden] = React.useState(true);
   const [forceVr, setForceVr] = React.useState(false);
 
+  const isHiddenRef = React.useRef(true);
   const pressingVRef = React.useRef(false);
   const pressingRRef = React.useRef(false);
 
@@ -27,16 +27,21 @@ const XR = ({ setHideApp }) => {
     setForceVr,
   });
 
-  const swapApps = (hasDevice = false) => {
+  const swapApps = React.useCallback((hasDevice = false) => {
     if (hasDevice || forceVr) {
-      setHideApp(true);
-      setIsHidden(false);
-      window.xrSessionSupported = Boolean(navigator.xr && navigator.xr.isSessionSupported('inline'));
-      window.dispatchEvent(window.runXrEvent);
+      if (isHiddenRef.current) {
+        setHideApp(true);
+        isHiddenRef.current = false;
+        window.xrSessionSupported = Boolean(navigator.xr && navigator.xr.isSessionSupported('inline'));
+        window.dispatchEvent(window.runXrEvent);
+      } else {
+        setHideApp(false);
+        isHiddenRef.current = true;
+      }
     }
-  };
+  }, [isHiddenRef, forceVr, setHideApp]);
 
-  if (isHidden) {
+  if (isHiddenRef.current) {
     if (navigator.xr) {
       navigator.xr.requestDevice().then(() => swapApps(true)).finally(swapApps);
     } else if (forceVr) {
@@ -44,14 +49,31 @@ const XR = ({ setHideApp }) => {
     }
   }
 
+  React.useEffect(() => {
+    const prepXrHandler = () => {
+      if (isHiddenRef.current) {
+        setForceVr(true);
+      }
+    };
+
+    window.addEventListener('prepxr', prepXrHandler);
+
+    return () => {
+      window.removeEventListener('prepxr', null);
+    };
+  }, [isHiddenRef, setForceVr]);
+
   const xrPrompt = (
     <div
       className={classie({
         [styles.xr]: true,
-        hide: isHidden,
+        hide: true,
       })}
     >
-      <button className={styles.xrPrompt}>
+      <button
+        className={styles.xrPrompt}
+        onClick={setDestroyXr}
+      >
         <h4>Exit XR</h4>
       </button>
     </div>

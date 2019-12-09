@@ -33,7 +33,9 @@
     <div id="xrRoot"></div>
 
     <script>
-        window.runXrEvent = new Event('runxr');
+      window.prepXrEvent = new Event('prepxr');
+      window.runXrEvent = new Event('runxr');
+      window.destroyXrEvent = new Event('destroyxr');
     </script>
     <script src="./three.min.js"></script>
     <script src="./vr.js"></script>

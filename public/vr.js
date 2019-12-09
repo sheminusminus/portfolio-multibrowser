@@ -1,10 +1,7 @@
-
 (function () {
-  function runCanvas(evt) {
-    console.log(evt.target);
-    // so webstorm stops whining about undef
-    const { THREE } = window;
+  const { THREE } = window;
 
+  function runCanvas() {
     let container;
     let camera;
     let scene;
@@ -55,6 +52,8 @@
     }
 
     function onDocumentMouseDown(event) {
+      if (event.persist) event.persist();
+
       event.preventDefault();
 
       isInteraction = true;
@@ -66,6 +65,8 @@
     }
 
     onDocumentMouseMove = (event) => {
+      if (event.persist) event.persist();
+
       if (isInteraction) {
         mouseX = event.clientX - windowHalfX;
         mouseY = event.clientY - windowHalfY;
@@ -83,6 +84,8 @@
     };
 
     function onDocumentTouchStart(event) {
+      if (event.persist) event.persist();
+
       if (event.touches.length === 1) {
         event.preventDefault();
         mouseXOnMouseDown = event.touches[0].pageX - windowHalfX;
@@ -91,6 +94,8 @@
     }
 
     function onDocumentTouchMove(event) {
+      if (event.persist) event.persist();
+
       if (event.touches.length === 1) {
         event.preventDefault();
         mouseX = event.touches[0].pageX - windowHalfX;
@@ -99,6 +104,8 @@
     }
 
     function onDocumentMouseWheel(event) {
+      if (event.persist) event.persist();
+
       const fovDelta = fov - (event.deltaY * 0.05);
       fov = Math.max(Math.min(fovDelta, fovMAX), fovMIN);
     }
@@ -124,7 +131,8 @@
       scene = new THREE.Scene();
 
       if (!window.mlWorld) {
-        scene.background = new THREE.Color(0x3B3961);
+        // set the background if we're not running in magic leap
+        scene.background = new THREE.Color(0x844BA1);
       }
 
       group = new THREE.Group();
@@ -176,6 +184,8 @@
       }
     }
 
+    let frameId;
+
     function animate() {
       renderer.state.reset();
       camera.fov = fov;
@@ -184,8 +194,23 @@
       group.rotation.x += (targetRotationY - group.rotation.x) * 0.05;
       renderer.render(scene, camera);
       camera.updateProjectionMatrix();
-      requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
     }
+
+    function empty(elem) {
+      while (elem.lastChild) elem.removeChild(elem.lastChild);
+    }
+
+    window.addEventListener('destroyxr', () => {
+      cancelAnimationFrame(frameId);
+      renderer.domElement.addEventListener('dblclick', null, false);
+      scene = null;
+      camera = null;
+      renderer = null;
+      group = null;
+      cubes = null;
+      empty(container);
+    });
 
     init();
     animate();
