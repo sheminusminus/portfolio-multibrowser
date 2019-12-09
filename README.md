@@ -3,11 +3,9 @@
 personal portfolio site, with a version for the dom, and a version for vr.
 
 
-### viewing in vr
+### previewing the xr mode, when not in xr
 
-1. visit emkolar.ninja and hold down `V` and `R` simultaneously.
- 
-2. press `M` to launch for magic leap displays, or press any other key for other vr displays (vive, etc).
+1. visit emkolar.ninja and hold down the `x` and `r` keys simultaneously.
 
 
 ### run in development

@@ -26,7 +26,7 @@ const useVrKeysPressedHook = (options = {}) => {
       const keyDownHandler = (evt) => {
         const { key } = evt;
 
-        if (key === Keys.V) {
+        if (key === Keys.X) {
           pressingVRef.current = true;
         } else if (key === Keys.R) {
           pressingRRef.current = true;
@@ -40,7 +40,7 @@ const useVrKeysPressedHook = (options = {}) => {
       const keyUpHandler = (evt) => {
         const { key } = evt;
 
-        if (key === Keys.V) {
+        if (key === Keys.X) {
           pressingVRef.current = false;
         } else if (key === Keys.R) {
           pressingRRef.current = false;
