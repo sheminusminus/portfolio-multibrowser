@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: 12.x
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -22,7 +22,7 @@ jobs:
         yarn
         yarn build
         yarn test
-    - name: Run TestCafe
+    - name: e2e tests
       uses: DevExpress/testcafe-action@latest
       env:
         CI: true
