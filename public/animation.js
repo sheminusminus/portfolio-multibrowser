@@ -7,7 +7,6 @@
   let canvas;
   let ctx;
   let circles;
-  let target;
 
   // so we don't continue animating if header is out of viewport
   let animateHeader = true;
@@ -60,7 +59,6 @@
     // set size constraints
     width = window.innerWidth;
     height = window.innerHeight;
-    target = { x: 0, y: height };
 
     header = document.getElementById('hero');
     // header.style.height = `${height * 1.25}px`;
@@ -80,8 +78,7 @@
   }
 
   function scrollCheck() {
-    if (document.body.scrollTop > height * 1.25) animateHeader = false;
-    else animateHeader = true;
+    animateHeader = document.body.scrollTop <= height * 1.25;
   }
 
   function resize() {
