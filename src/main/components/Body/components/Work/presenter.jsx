@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { classie } from 'utils';
 
@@ -52,5 +53,9 @@ const Work = ({ theme }) => (
     })}
   </div>
 );
+
+Work.propTypes = {
+  theme: PropTypes.shape().isRequired,
+};
 
 export default Work;

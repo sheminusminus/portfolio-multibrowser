@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { classie } from 'utils';
 
 import styles from './styles.module.css';
 
 const Project = ({
-  href = '',
-  image = '',
-  images = [],
-  isFeatured = false,
-  title = '',
+  href,
+  image,
+  images,
+  isFeatured,
+  title,
   type,
 }) => {
   const isIphone = type === 'iphone';
@@ -55,6 +56,21 @@ const Project = ({
       {inner}
     </div>
   );
+};
+
+Project.propTypes = {
+  href: PropTypes.string,
+  image: PropTypes.string,
+  images: PropTypes.arrayOf(PropTypes.string),
+  isFeatured: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+};
+
+Project.defaultProps = {
+  href: undefined,
+  image: undefined,
+  isFeatured: false,
 };
 
 export default Project;

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { text } from 'appConstants';
 import { StringUtils } from 'utils';
-
 import { intro } from 'data';
 
 import { IntroIcon, IntroSkill, IntroLink } from 'components';
@@ -57,11 +57,11 @@ const Hero = ({ theme }) => (
     <div className={styles.intro}>
       <p className={styles.introText}>
         <span className={theme.heading}>
-          hi, i'm emily.
+          {text.hero.line1}
           <br/>
-          i love to build things.
+          {text.hero.line2}
           <br />
-          for the web, ios, and beyond.
+          {text.hero.line3}
         </span>
       </p>
 

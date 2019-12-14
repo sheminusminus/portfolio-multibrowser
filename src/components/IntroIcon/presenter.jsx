@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { classie } from 'utils';
 
@@ -14,5 +15,14 @@ const IntroIcon = ({ className, href }) => (
     <span className={classie([styles.icon, className])} />
   </a>
 );
+
+IntroIcon.propTypes = {
+  className: PropTypes.string,
+  href: PropTypes.string.isRequired,
+};
+
+IntroIcon.defaultProps = {
+  className: undefined,
+};
 
 export default IntroIcon;

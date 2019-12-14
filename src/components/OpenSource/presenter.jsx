@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './styles.module.css';
 
@@ -16,15 +17,15 @@ const OpenSource = ({
         <span className={styles.accent} />
       </h5>
 
-      {!!images && images.length > 0 &&
+      {!!images && (
         <div className={styles.multiImage}>
-          {images.map((img, idx) => (
-            <img key={`os-img-${idx}`} src={img} alt={title} className={styles.img} />
+          {images.map(img => (
+            <img key={img} src={img} alt={title} className={styles.img} />
           ))}
-        </div>}
+        </div>
+      )}
 
-      {(!images || images.length === 0) &&
-        <img src={image} alt={title} className={styles.img} />}
+      {!images && <img src={image} alt={title} className={styles.img} />}
     </div>
   );
 
@@ -46,6 +47,19 @@ const OpenSource = ({
       {inner}
     </div>
   );
+};
+
+OpenSource.propTypes = {
+  href: PropTypes.string,
+  image: PropTypes.string,
+  images: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string.isRequired,
+};
+
+OpenSource.defaultProps = {
+  href: undefined,
+  image: undefined,
+  images: undefined,
 };
 
 export default OpenSource;

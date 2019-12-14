@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './styles.module.css';
 
@@ -29,6 +30,11 @@ const IntroLink = ({ text, element }) => {
       </span>
     </span>
   );
+};
+
+IntroLink.propTypes = {
+  element: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default IntroLink;

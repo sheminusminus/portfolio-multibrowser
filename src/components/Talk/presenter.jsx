@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './styles.module.css';
 
@@ -45,6 +46,22 @@ const Talk = ({
       {inner}
     </div>
   );
+};
+
+Talk.propTypes = {
+  date: PropTypes.string,
+  href: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  venue: PropTypes.string,
+};
+
+Talk.defaultProps = {
+  date: undefined,
+  href: undefined,
+  image: undefined,
+  title: undefined,
+  venue: undefined,
 };
 
 export default Talk;

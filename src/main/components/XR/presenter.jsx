@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 
 import { useVrKeysPressedHook } from 'hooks';
@@ -15,7 +16,7 @@ const navigatorHasXr = Boolean(
   && navigator.xr.requestDevice,
 );
 
-const XR = ({ setDestroyXr, setHideApp }) => {
+const XR = ({ setHideApp }) => {
   const [addedListeners, setAddedListeners] = React.useState(false);
   const [forceVr, setForceVr] = React.useState(false);
 
@@ -80,7 +81,6 @@ const XR = ({ setDestroyXr, setHideApp }) => {
     >
       <button
         className={styles.xrPrompt}
-        onClick={setDestroyXr}
       >
         <h4>Exit XR</h4>
       </button>
@@ -88,6 +88,10 @@ const XR = ({ setDestroyXr, setHideApp }) => {
   );
 
   return createPortal(xrPrompt, xrRoot);
+};
+
+XR.propTypes = {
+  setHideApp: PropTypes.func.isRequired,
 };
 
 export default XR;

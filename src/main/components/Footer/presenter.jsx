@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
+import { text } from 'appConstants';
 import { EventUtils } from 'utils';
 
 import styles from './styles.module.css';
-
 
 const Footer = ({ setHideApp }) => (
   <div className={styles.footer}>
@@ -11,16 +12,22 @@ const Footer = ({ setHideApp }) => (
       <a
         href="https://github.com/sheminusminus/portfolio-multibrowser"
         onClick={EventUtils.makeDispatchPreviewXrEvent(setHideApp)}
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        psst... i run in xr too. want a preview?
+        {text.footer.message}
       </a>
     </div>
 
     <div className={styles.typical}>
-      <p>{String.fromCharCode(9829)} made in chicago</p>
-      <p>{String.fromCharCode(169)} emily kolar, {(new Date()).getFullYear()}</p>
+      <p> {text.footer.location}</p>
+      <p>{text.footer.copyright}</p>
     </div>
   </div>
 );
+
+Footer.propTypes = {
+  setHideApp: PropTypes.func.isRequired,
+};
 
 export default Footer;
