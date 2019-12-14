@@ -105,7 +105,7 @@ export default {
         title: 'Migrating to React 16',
         date: '2017',
         venue: 'ReactJS Chicago',
-        href: 'http://emkolar.ninja/migrating_to_react16.pdf',
+        href: './migrating_to_react16.pdf',
         image: mig,
       },
     ],

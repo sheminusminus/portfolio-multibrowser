@@ -47,7 +47,7 @@ const Work = ({ theme }) => (
             ))}
           </div>
 
-          {isNotLast && <Divider />}
+          {isNotLast && <Divider className={styles.padBelow} />}
         </React.Fragment>
       );
     })}

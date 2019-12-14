@@ -7,7 +7,7 @@ const scrollOnClick = (evt) => {
   const targetId = evt.target.getAttribute('data-target');
   const element = document.querySelector(targetId);
   const bBox = element.getBoundingClientRect();
-  const scrollTop = bBox.top - 60;
+  const scrollTop = bBox.top - 70;
 
   window.scroll({
     top: scrollTop,

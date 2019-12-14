@@ -25,6 +25,10 @@
     font-size: 36px !important;
 }
 
+.padBelow {
+    margin-bottom: 60px;
+}
+
 @media (min-width: 980px) {
     .grid, .gridFeatured {
         display: flex;
