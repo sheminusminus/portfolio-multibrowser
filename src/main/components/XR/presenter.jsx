@@ -10,6 +10,11 @@ import styles from './styles.module.css';
 const xrRoot = document.getElementById('xrRoot');
 
 
+const navigatorHasXr = Boolean(
+  navigator.xr
+  && navigator.xr.requestDevice,
+);
+
 const XR = ({ setDestroyXr, setHideApp }) => {
   const [addedListeners, setAddedListeners] = React.useState(false);
   const [forceVr, setForceVr] = React.useState(false);
@@ -32,7 +37,10 @@ const XR = ({ setDestroyXr, setHideApp }) => {
       if (isHiddenRef.current) {
         setHideApp(true);
         isHiddenRef.current = false;
-        window.xrSessionSupported = Boolean(navigator.xr && navigator.xr.isSessionSupported('inline'));
+        window.xrSessionSupported = Boolean(
+          navigatorHasXr
+          && navigator.xr.isSessionSupported('inline'),
+        );
         window.dispatchEvent(window.runXrEvent);
       } else {
         setHideApp(false);
@@ -42,7 +50,7 @@ const XR = ({ setDestroyXr, setHideApp }) => {
   }, [isHiddenRef, forceVr, setHideApp]);
 
   if (isHiddenRef.current) {
-    if (navigator.xr && navigator.xr.requestDevice) {
+    if (navigatorHasXr) {
       navigator.xr.requestDevice().then(() => swapApps(true)).finally(swapApps);
     } else if (forceVr) {
       swapApps();
