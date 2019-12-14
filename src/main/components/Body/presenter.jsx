@@ -2,7 +2,8 @@ import React from 'react';
 
 import { withTheme } from 'hoc';
 
-import { Divider, Hero, Work } from './components';
+import { Divider } from 'components';
+import { Hero, Work } from './components';
 
 import styles from './styles.module.css';
 

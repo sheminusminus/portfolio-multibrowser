@@ -22,5 +22,7 @@ jobs:
         yarn
         yarn build
         yarn test
+    - name: Run TestCafe
+      uses: DevExpress/testcafe-action@latest
       env:
         CI: true

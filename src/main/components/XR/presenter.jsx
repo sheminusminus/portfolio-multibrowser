@@ -42,7 +42,7 @@ const XR = ({ setDestroyXr, setHideApp }) => {
   }, [isHiddenRef, forceVr, setHideApp]);
 
   if (isHiddenRef.current) {
-    if (navigator.xr) {
+    if (navigator.xr && navigator.xr.requestDevice) {
       navigator.xr.requestDevice().then(() => swapApps(true)).finally(swapApps);
     } else if (forceVr) {
       swapApps();

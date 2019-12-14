@@ -2,11 +2,11 @@ import React from 'react';
 
 import { classie } from 'utils';
 
-import { Body, Footer, Header, XR } from 'components';
 import { ThemeProvider } from 'context';
 
-import styles from './styles.module.css';
+import { Body, Footer, Header, XR } from './components';
 
+import styles from './styles.module.css';
 import theme from './theme.module.css';
 
 const Main = () => {

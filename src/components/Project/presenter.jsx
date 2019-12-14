@@ -12,6 +12,8 @@ const Project = ({
   title = '',
   type,
 }) => {
+  const isIphone = type === 'iphone';
+
   const className = classie([
     styles.project], {
       [styles.featured]: isFeatured,
@@ -28,7 +30,7 @@ const Project = ({
     <div className={styles.imgWrapper}>
       <h5><span className={styles.accent} />{title}<span className={styles.accent} /></h5>
 
-      {isFeatured ?
+      {isFeatured || isIphone ?
         images.map((i, idx) =>
           <img key={`featured-img-${idx}`} src={i} alt={`${title} ${idx}`} className={imgClassNames} />)
         : <img src={image} alt={title} className={styles.img} />}

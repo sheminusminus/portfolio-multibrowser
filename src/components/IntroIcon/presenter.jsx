@@ -11,9 +11,7 @@ const IntroIcon = ({ className, href }) => (
     rel="noopener noreferrer"
     target="_blank"
   >
-    <span
-      className={classie([styles.icon, className])}
-    />
+    <span className={classie([styles.icon, className])} />
   </a>
 );
 
