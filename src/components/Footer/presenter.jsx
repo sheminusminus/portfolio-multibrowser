@@ -1,20 +1,16 @@
 import React from 'react';
 
+import { EventUtils } from 'utils';
+
 import styles from './styles.module.css';
 
-const makeDispatchPreviewXrEvent = setHideApp => (evt) => {
-  evt.preventDefault();
-  setHideApp(true);
-  window.xrSessionSupported = false;
-  window.dispatchEvent(window.prepXrEvent);
-};
 
 const Footer = ({ setHideApp }) => (
   <div className={styles.footer}>
     <div className={styles.repo}>
       <a
         href="https://github.com/sheminusminus/portfolio-multibrowser"
-        onClick={makeDispatchPreviewXrEvent(setHideApp)}
+        onClick={EventUtils.makeDispatchPreviewXrEvent(setHideApp)}
       >
         psst... i run in xr too. want a preview?
       </a>
